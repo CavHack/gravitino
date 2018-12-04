@@ -38,6 +38,9 @@
 #define SAMEXT_BGZF_H "htslib/htslib/bgzf.h"
 #define SAMEXT_SAM_H "htslib/htslib.sam.h"
 
+
+
+
 struct hash {
 
   uint8_t h[HASH_SIZE];
@@ -50,11 +53,42 @@ struct address {
 
 };
 
-void hashchain_N_to_N(struct hash *dst, const struct hash *src);
-void hashchain_N_to_N_block(struct hash * dst, const struct hash *src, int chainLen);
-void hashchain_2N_to_N(struct hash *dst, const struct hash *src);
-void hashchain_to_N(struct hash *dst, const uint8_t *src, uint64_t srclen);
 
+
+class HashChainSolo {
+ public:
+  uint bN;
+  string chr1, chr2; //1/2 (old/new) chr names
+  vector<uint> bStart1, bLen; //blocks starts in 1/2, lenghts
+
+};
+
+class HashChain {
+
+ public:
+  void hashchain_N_to_N(struct hash *dst, const struct hash *src);
+  void hashchain_N_to_N_block(struct hash *dst, const struct hash *src, int chainlen);
+  void hashchain_2N_to_N(struct hash *dst, const struct hash *src);
+  void hashchain_to_N(struct hash *dst, const uint8_t *src, uint64_t srclen);
+
+  /*Compress 2*count input rna-seq hashes into count output rna-seq hashes, pairwise*/
+  void hashchain_compress_pairs(struct hash *dst, const struct hash *src, int count);
+  /*Compress count rna-seq hashes into a single hashchain*/
+  void hashchain_compress_all(struct hash *dst, const struct hash *src, int count);
+  /*Compute rna-seq hashes in parallel*/
+  void hashchain_parallel (struct hash *dst, const struct hash *src, int count);
+  /*Compute rna-seq hashchain blocks of length chainlen in paralle*/
+  void hashchain_parallel_blocks(struct hash *dst, const struct hash *src, int count, chainlen);
+  
+
+};
+
+
+/*int hashchaincmp(const struct hash *a, const struct hash *b)*/
+#define hashchaincmp(a,b) memcmp ((a)->h, (b)->h, HASH_SIZE);
+
+
+#define hashchaincmpN(a, b, N)
 
 
 using namespace std;
