@@ -1,0 +1,32 @@
+#ifndef GENOME_QUEUE_H_
+#define GENOME_QUEUE_H_
+
+#include "HashChain.h"
+#include "Params.h"
+#include "GraviTree.h"
+
+class GenomeQueue {
+
+ public:
+  char *GenomeQueue, *signatureGenome;
+  GraviTree SA, SAinsert, SApass1, SApass2;
+  GraviTree SAi;
+  Variation *Var;
+
+  uint nGenomeInsert, nGenomePass1, nGenomePass2, nSAinsert, nsApass1, nsApass2;
+
+  ParamsGenome &pGe;
+
+  //ch parameters
+  vector <uint> chrStart, chrLength, chrLenghtAll;
+  uint genomeChrBinbases, chrBinN, *chrBin;
+  vector<string> chrName, chrNameAll;
+  map<string, uint> chrNameIndex;
+
+  uint *genomeSAindexStart; //starts of the L-mer indices in the SAindex, 1<=L<=pGe.gSA1indexNbases
+
+
+
+
+
+}
