@@ -4,6 +4,7 @@
 #include "HashChain.h"
 #include "Params.h"
 #include "GraviTree.h"
+#include "Chaos.h"
 
 class GenomeQueue {
 
@@ -13,14 +14,20 @@ class GenomeQueue {
   GraviTree SAi;
   Variation *Var;
 
-  uint nGenomeInsert, nGenomePass1, nGenomePass2, nSAinsert, nsApass1, nsApass2;
+  uint nGenomeStackInsert, nGenomeStackPass1, nGenomeStackPass2, nSAinsert, nsApass1, nsApass2;
 
   ParamsGenome &pGe;
 
   //ch parameters
   vector <uint> chrStart, chrLength, chrLenghtAll;
   uint genomeChrBinbases, chrBinN, *chrBin;
+  vector <string> chrName, chrNameAll;
 
+  uint LmerIndxStart; //begin L-mer dimer sequence
+  
+  //Genomic stack
+  //genome length, SA lenght, # of chromosomes
+  uint nGenomeStack, nSAbytes, nChrReal;
 
 
 
