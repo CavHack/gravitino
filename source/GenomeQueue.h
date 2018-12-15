@@ -28,6 +28,8 @@ class GenomeQueue {
   //Genomic stack
   //genome length, SA lenght, # of chromosomes
   uint nGenomeStack, nSAbytes, nChrReal;
+  uint nGenomeStack2, nSA2, nSAbyte2, nChrReal2; 
+  uint nSAil // SA index.
 
 
 
