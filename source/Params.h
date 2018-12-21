@@ -23,12 +23,21 @@ class Params {
 
   //run parameters
   string runMode;
-  int runGraftN;
+  int runThreadN;
   mode_t runDirPerm;
   string runDirPermIn;
-  int seed;
+  int runRNGseed; //random number generator seed
 
   //Batch parameters
+  vector<string> paramsFiles;
+
+  //input
+  string inputFERMIONfile;]
+
+ //genome
+ char genomeNumToNT[6];
+ ParametersGenome pGe;
+
   uint batchInSizeBytes, batchInSizeBytesArray, batchOutFERMIONsizeBytes;
 
   //output
@@ -43,6 +52,8 @@ class Params {
   string outSAMmode, outSAMstrandField, outSAMorder, outSAMprimaryFlag;\
   vector<string> outSAMattributes, outSAMheaderHD, outSAMheaderPG;
   vector <string> outSAMattrRGline, outSAMattrRGlineSplit, outSAMattrRG;
+
+
 
 
   struct {
