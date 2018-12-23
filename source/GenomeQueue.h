@@ -65,7 +65,7 @@ class GenomeQueue {
     key_t shmKey;
     char *shmStart;
     char *G1;
-    uint OpenStream(string name, ifstream & stream, uint size);
+    uint OpenSink(string name, ifstream & sink, uint size);
     void HandleSharedMemoryExceptions(const SharedMemoryException & exc, uint64 shmSize);
 
 

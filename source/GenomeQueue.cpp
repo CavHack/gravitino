@@ -59,6 +59,7 @@ uint GenomeQueue::OpenSink(string name, ifstream & sink, uint size) {
         sink.seekg(0, ios::end);
         int64 size1 = sink.tellg();
         if (size <= 0) {
+
             ostringstream errOutl;
             errOut << "EXITING because of FATAL ERROR: failed reading from genome file: "<< pGe.gDir << "/" << name <<"\n";
             errOut << "SOLUTION: re-generate the genome index\n";
@@ -66,7 +67,11 @@ uint GenomeQueue::OpenSink(string name, ifstream & sink, uint size) {
 
         };
 
-
+        size= (uint) size1;
+        sink.clear();
+        sink.seekg(0, ios::beg);
+        P.inOut->logMain << "file size:" << size << "bytes; state: good=" << sink.good()\
+        << "eof" << sink.eof() << ""
 
 
 
