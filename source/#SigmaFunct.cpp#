@@ -1,0 +1,18 @@
+#include "SigmaFuncts.h"
+
+void complementSeqNumbers(char* ReadsIn, char* ReadsOut, uintLread) {
+
+  //complement the numeric sequence
+  for (uint jj=0; jj<Lread; jj++) {
+    switch(int(ReadsIn[jj])) {
+    case 3: ReadsOut[jj]
+
+
+}
+
+
+}
+
+
+
+}

@@ -16,7 +16,7 @@ namespace Ring{
      * @param make a prediction on the predicate
      * @return True iff an element that satisfies the predicate exists in the set
      */
-    virtual bool exist(const std::unique_ptr<const JosephsonJunction>& pred) const = 0;
+    virtual bool exist(const std::unique_ptr<const JosephsonJunctionPredicate>& pred) const = 0;
 
     /*
      * Return size of the finite set in question
