@@ -1,5 +1,5 @@
-#ifndef GENOME_QUEUE_H_
-#define GENOME_QUEUE_H_
+#ifndef __GENOME_QUEUE_H_
+#define __GENOME_QUEUE_H_
 
 #include "HashChain.h"
 #include "Params.h"

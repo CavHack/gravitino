@@ -4,6 +4,9 @@
  *
  */
 
+#ifndef __HashChain_H__
+#define __HashChain_H__
+
 #ifndef HASHCHAIN_H
 #define HASHCHAIN_H
 
@@ -66,6 +69,13 @@ class HashChainSolo {
 class HashChain {
 
  public:
+ //// uint bN;//number of blocks
+// // vector<uint> bStart1, bStart2, bLen; // block starts in 1/2, lengths
+
+  HashChain(Params &Pin, string hashChainFileNameIn);
+  void liftOverGTF(string gtfFileName, string outFileName);
+
+
   void hashchain_N_to_N(struct hash *dst, const struct hash *src);
   void hashchain_N_to_N_block(struct hash *dst, const struct hash *src, int chainlen);
   void hashchain_2N_to_N(struct hash *dst, const struct hash *src);
@@ -79,6 +89,12 @@ class HashChain {
   void hashchain_parallel (struct hash *dst, const struct hash *src, int count);
   /*Compute rna-seq hashchain blocks of length chainlen in paralle*/
   void hashchain_parallel_blocks(struct hash *dst, const struct hash *src, int count, chainlen);
+
+  private:
+  Params &P;
+  string hashChainFileName;
+  void hashChainLoad();
+  std::map<string, HashChainSolo> chrChains;
   
 
 };
@@ -112,3 +128,4 @@ typedef uint8_t uint8;
 #define int64 long long
 #define int32 int
 
+#endif
