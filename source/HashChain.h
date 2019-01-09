@@ -127,5 +127,4 @@ typedef uint8_t uint8;
 #define uchar unsigned char
 #define int64 long long
 #define int32 int
-
 #endif
